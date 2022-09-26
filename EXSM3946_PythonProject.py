@@ -1,6 +1,5 @@
 # from warnings import catch_warnings
 import matplotlib.pyplot as plt
-
 from ast import match_case
 
 
@@ -64,16 +63,12 @@ while True:
                                         userOption = input().strip().upper()
                                         if userOption == "1":
                                                 lineStyle = '-'
-                                                # break
                                         elif userOption == "2":
                                                 lineStyle = ':'
-                                                # break
                                         elif userOption == "3":
                                                 lineStyle = '--'
-                                                # break
                                         elif userOption == "4":
                                                 lineStyle = '-.'
-                                                # break
                                         break
                                 elif userOption == "N":
                                         break
@@ -83,7 +78,8 @@ while True:
                         while True:
                                 userOption = input("Would you like to choose a custom marker style? Y/N  ").strip().upper()
                                 if userOption == 'Y':
-                                        userOption = input("Option 1: Circle Marker \nOption 2: Star Marker \nOption 3: Diamond Marker \nOption 4: Hexagon Marker").strip().upper()
+                                        print("Option 1: Circle Marker \nOption 2: Star Marker \nOption 3: Diamond Marker \nOption 4: Hexagon Marker")
+                                        userOption = input().strip().upper()
                                         if userOption == "1":
                                                 markerStyle = 'o'
                                         elif userOption == "2":
@@ -100,6 +96,9 @@ while True:
                         print("Line Style: " , lineStyle)
                         print("Marker: " , markerStyle)
                         plt.plot(x_axis, y_axis, linestyle = lineStyle, marker = markerStyle)
+                        plt.title(plotTitle)
+                        plt.xlabel(x_axisLabel)
+                        plt.ylabel(y_axisLabel)
                         plt.show()
                         x_axis.clear()
                         y_axis.clear()
