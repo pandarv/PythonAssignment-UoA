@@ -9,7 +9,6 @@ def isFloat(prompt, vari):
                         inputVal = float(input(prompt))
                         vari.append(inputVal)
                         isTrue = True
-                        print(inputVal)
                 except:
                         print("Please Enter correct Number format ")
                         isTrue = True
@@ -25,14 +24,19 @@ while True:
                         print("Manual Data Entry.")
                         # xAxisList = input("Please Enter x-axis values: ")
                         # x_AxisEntry = ""
-                        while userOption != "E":
-                                userOption = input("Please choose options: ")
+                        while userOption.upper() != "E":
+                                userOption = input("Press 'Enter' to add value in x-axis List or 'E' to exit: ")
                                 if userOption is not "E":
                                         isFloat("Please Enter x-axis values: ", x_axis)
-                                        print(userOption)
-                        # x_axis.append(xAxisList)
+
+                        while userOption.upper() != "Q":
+                                userOption = input("Press 'Enter' to add value in y-axis List or 'Q' to exit: ")
+                                if userOption is not "Q":
+                                        isFloat("Please Enter y-axis values: ", y_axis)
+                                        
                         print( x_axis)
-                        yAxisList = input("Please Enter y-axis values: ")
+                        print( y_axis)
+
                 case "2":
                         print("Entry Data from text File.")
                 case "0":
