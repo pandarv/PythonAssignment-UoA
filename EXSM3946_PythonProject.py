@@ -32,42 +32,58 @@ x_axis = list()
 y_axis = list()
 
 while True:
-        userOption = input("Please Enter your Option: ")
+        userOption = input("Please Enter your Option: ").strip().upper()
         match userOption.strip():
                 case "1":
-                        print("Manual Data Entry.")
-                        # xAxisList = input("Please Enter x-axis values: ")
-                        # x_AxisEntry = ""
-                        while userOption.upper() != "E":
-                                userOption = input("Press 'Enter' to add value in x-axis List or 'E' to exit: ")
+                        while userOption != "E":
+                                userOption = input("Press 'Enter' to add value in x-axis List or 'E' to exit: ").strip().upper()
                                 if userOption != "E":
                                         isFloat("Please Enter x-axis values: ", x_axis)
 
                         while userOption.upper() != "Q":
-                                userOption = input("Press 'Enter' to add value in y-axis List or 'Q' to exit: ")
-                                if userOption is not "Q":
+                                userOption = input("Press 'Enter' to add value in y-axis List or 'Q' to exit: ").strip().upper()
+                                if userOption != "Q":
                                         isFloat("Please Enter y-axis values: ", y_axis)
 
                         print( x_axis)
                         print( y_axis)
                         plotTitle = quesAns("plot title")
                         x_axisLabel = quesAns("x-axis label")
-                        y_axisLabel = quesAns("y-axis label")                
+                        y_axisLabel = quesAns("y-axis label")
+                        lineStyle = None                
                         
                         print(plotTitle)
                         print(x_axisLabel)
                         print(y_axisLabel)
-                        plt.plot(x_axis, y_axis)
+                        while True:
+                                userOption = input("Would you like to choose a custom line style? Y/N  ").strip().upper()
+                                if userOption == 'Y':
+                                        userOption = print("Option 1: Solid Line \nOption 2: Dotted Line \nOption 3: Dashed Line \nOption 4: Dashed/Dotted Line")
+                                        input().strip().upper()
+                                        if userOption == "1":
+                                                lineStyle = '-'
+                                        elif userOption == "2":
+                                                lineStyle = ':'
+                                        elif userOption == "3":
+                                                lineStyle = '--'
+                                        elif userOption == "4":
+                                                lineStyle = '-.'
+                                        break
+                                elif userOption == "N":
+                                        break
+                                else:
+                                        print('Please Choose Y/N.')
+                                # match userOption:
+                                #         case 'Y':
+                                #                 print("Choose from the options")
+                                #                 lineStyle = '-.'
+                                #         case 'N':
+                                #                 break
+                                #         case _:
+                                #                 print('Please Choose Y/N.')
+
+                        plt.plot(x_axis, y_axis, ls = lineStyle)
                         plt.show()
-                        # while True:
-                        #         userOption = input("Would you like to choose a custom line style? Y/N  ").strip().upper()
-                        #         match userOption:
-                        #                 case 'Y':
-                        #                         print("Choose from the options")
-                        #                 case 'N':
-                        #                         break
-                        #                 case _:
-                        #                         print('Please Choose Y/N.')
                         x_axis.clear()
                         y_axis.clear()
 
