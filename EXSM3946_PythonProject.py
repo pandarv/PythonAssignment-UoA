@@ -50,39 +50,56 @@ while True:
                         plotTitle = quesAns("plot title")
                         x_axisLabel = quesAns("x-axis label")
                         y_axisLabel = quesAns("y-axis label")
-                        lineStyle = None                
+                        lineStyle = None
+                        markerStyle = None                
                         
                         print(plotTitle)
                         print(x_axisLabel)
                         print(y_axisLabel)
+                        
                         while True:
                                 userOption = input("Would you like to choose a custom line style? Y/N  ").strip().upper()
                                 if userOption == 'Y':
-                                        userOption = print("Option 1: Solid Line \nOption 2: Dotted Line \nOption 3: Dashed Line \nOption 4: Dashed/Dotted Line")
-                                        input().strip().upper()
+                                        print("Option 1: Solid Line \nOption 2: Dotted Line \nOption 3: Dashed Line \nOption 4: Dashed/Dotted Line")
+                                        userOption = input().strip().upper()
                                         if userOption == "1":
                                                 lineStyle = '-'
+                                                # break
                                         elif userOption == "2":
                                                 lineStyle = ':'
+                                                # break
                                         elif userOption == "3":
                                                 lineStyle = '--'
+                                                # break
                                         elif userOption == "4":
                                                 lineStyle = '-.'
+                                                # break
                                         break
                                 elif userOption == "N":
                                         break
                                 else:
                                         print('Please Choose Y/N.')
-                                # match userOption:
-                                #         case 'Y':
-                                #                 print("Choose from the options")
-                                #                 lineStyle = '-.'
-                                #         case 'N':
-                                #                 break
-                                #         case _:
-                                #                 print('Please Choose Y/N.')
-
-                        plt.plot(x_axis, y_axis, ls = lineStyle)
+                        
+                        while True:
+                                userOption = input("Would you like to choose a custom marker style? Y/N  ").strip().upper()
+                                if userOption == 'Y':
+                                        userOption = input("Option 1: Circle Marker \nOption 2: Star Marker \nOption 3: Diamond Marker \nOption 4: Hexagon Marker").strip().upper()
+                                        if userOption == "1":
+                                                markerStyle = 'o'
+                                        elif userOption == "2":
+                                                markerStyle = '*'
+                                        elif userOption == "3":
+                                                markerStyle = 'D'
+                                        elif userOption == "4":
+                                                markerStyle = 'H'
+                                        break
+                                elif userOption == "N":
+                                        break
+                                else:
+                                        print('Please Choose Y/N.')
+                        print("Line Style: " , lineStyle)
+                        print("Marker: " , markerStyle)
+                        plt.plot(x_axis, y_axis, linestyle = lineStyle, marker = markerStyle)
                         plt.show()
                         x_axis.clear()
                         y_axis.clear()
