@@ -1,5 +1,5 @@
 # from warnings import catch_warnings
-
+import matplotlib.pyplot as plt
 
 from ast import match_case
 
@@ -57,17 +57,19 @@ while True:
                         print(plotTitle)
                         print(x_axisLabel)
                         print(y_axisLabel)
-
-                        while True:
-                                userOption = input("Would you like to choose a custom line style? Y/N  ").strip().upper()
-                                match userOption:
-                                        case 'Y':
-                                                print("Choose from the options")
-                                        case 'N':
-                                                break
-                                        case _:
-                                                print('Please Choose Y/N.')
-
+                        plt.plot(x_axis, y_axis)
+                        plt.show()
+                        # while True:
+                        #         userOption = input("Would you like to choose a custom line style? Y/N  ").strip().upper()
+                        #         match userOption:
+                        #                 case 'Y':
+                        #                         print("Choose from the options")
+                        #                 case 'N':
+                        #                         break
+                        #                 case _:
+                        #                         print('Please Choose Y/N.')
+                        x_axis.clear()
+                        y_axis.clear()
 
                 case "2":
                         print("Entry Data from text File.")
@@ -81,7 +83,3 @@ while True:
 
 
 
-
-
-# print(isFloat(("Please Enter Number: ")))
-# print(inputVal)
