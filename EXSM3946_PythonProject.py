@@ -105,6 +105,26 @@ while True:
 
                 case "2":
                         print("Entry Data from text File.")
+                        floatData= list()
+                        x_axis = floatData[0]
+                        y_axis = floatData[1]
+                        try:
+                                fileName = input("Please enter the file name: ")
+                                fileData = open(f'{fileName}', 'r')
+                                for line in fileData.readlines():
+                                        lengthOfData = line.strip().split(",")
+                                        floatList = [float(x) for x in lengthOfData]
+                                        floatData.append(floatList)
+                                        print(floatList)
+
+                        except Exception:
+                                # print("Could not read the file: ", fname)
+                                print("Error: ", Exception)
+
+                        print(floatData)
+                        print(x_axis)
+                        print(y_axis)
+                        
                 case "0":
                         # bool(int("0"))
                         print("Good Bye")
