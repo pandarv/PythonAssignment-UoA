@@ -47,6 +47,20 @@ def gettingStyles(name, opOne, one,  opTwo, two, opThree, three, opFour, four):
                                         break
                                 else:
                                         print('Please Choose Y/N.')
+        return userStyle       
+
+def gettingStylesFromFile(val):
+        userStyle = None
+        if userOption == "1":
+                userStyle = '-'
+        elif userOption == "2":
+                userStyle = ':'
+        elif userOption == "3":
+                userStyle = '--'
+        elif userOption == "4":
+                userStyle = '-.'
+        else:
+                userStyle = '-'
         return userStyle        
 
 x_axis = list()
@@ -93,28 +107,69 @@ while True:
                 case "2":
 
                         floatData= list()
-                        x_axis = None
-                        y_axis = None
+                        # x_axis = None
+                        # y_axis = None
                         try:
                                 fileName = input("Please enter the file name: ")
                                 fileData = open(f'{fileName}', 'r')
                                 for line in fileData.readlines():
                                         lengthOfData = line.strip().split(",")
-                                        floatList = [float(x) for x in lengthOfData]
-                                        floatData.append(floatList)
+                                        # floatList = [float(x) for x in lengthOfData]
+                                        # floatData.append(floatList)
+                                        floatData.append(lengthOfData)
+                                        print(lengthOfData)
                                         # print(floatList)
                         except Exception:
                                 print("Error: File Does not exist. ", Exception)
                         if len(floatData):
-                                [x_axis, y_axis] = floatData
-                                # print(floatData)
-                                # print(x_axis)
-                                # print(y_axis)
-                                plotTitle = quesAns("plot title")
-                                x_axisLabel = quesAns("x-axis label")
-                                y_axisLabel = quesAns("y-axis label")
-                                lineStyle = gettingStyles(name = "line Style", opOne = "Solid Line", one = '-',  opTwo = "Dotted Line", two = ':', opThree = "Dashed Line", three = '--',  opFour = "Dashed/Dotted Line", four = '-.')
-                                markerStyle = gettingStyles(name = "marker Style", opOne = "Circle Marker", one = 'o',  opTwo = "Star Marker", two = '*', opThree = "Diamond Marker", three = 'D',  opFour = "Hexagon Marker", four = 'H')
+                                [x_axis, y_axis, title, labelX, labelY, userLineStyle, userMarkerStyle] = floatData
+                                print(floatData)
+                                print(x_axis)
+                                print(y_axis)
+                                print(title)
+                                print(labelX)
+                                print(labelY)
+                                print(userLineStyle)
+                                print(userMarkerStyle)
+                                x_axis = [float(x) for x in x_axis]
+                                y_axis = [float(x) for x in y_axis]
+                                [plotTitle] = title
+                                [x_axisLabel] = labelX
+                                [y_axisLabel] = labelY
+                                [userLineStyle] = userLineStyle
+                                [userMarkerStyle] = userMarkerStyle
+                                print(x_axis)
+                                print(y_axis)
+
+                                """
+                                ---- Line Style ----
+                                """
+
+                                if userLineStyle == "1":
+                                        lineStyle = '-'
+                                elif userLineStyle == "2":
+                                        lineStyle = ':'
+                                elif userLineStyle == "3":
+                                        lineStyle = '--'
+                                elif userLineStyle == "4":
+                                        lineStyle = '-.'
+                                else:
+                                        lineStyle = '-'
+
+                                """
+                                ---- Marker Style ----
+                                """
+
+                                if userMarkerStyle == "1":
+                                        markerStyle = 'o'
+                                elif userMarkerStyle == "2":
+                                        markerStyle = '*'
+                                elif userMarkerStyle == "3":
+                                        markerStyle = 'D'
+                                elif userMarkerStyle == "4":
+                                        markerStyle = 'H'
+                                else:
+                                        markerStyle = 'o'
 
                                 """
                                 ---- Plotting the Graph ----

@@ -1,2 +1,7 @@
 0,1,2,3
 3,8,0.5,11
+speed
+time
+distance
+3
+2
