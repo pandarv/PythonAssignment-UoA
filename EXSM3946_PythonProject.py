@@ -107,34 +107,16 @@ while True:
                 case "2":
 
                         floatData= list()
-                        dataFile = list()
-                        # x_axis = None
-                        # y_axis = None
                         try:
                                 fileName = input("Please enter the file name: ")
                                 fileData = open(f'{fileName}', 'r')
                                 for line in fileData.readlines():
-                                        # dataFile.append(line.strip().split(","))                                        
-                                        print(line[0])
                                         lengthOfData = line.strip().split(",")
-                                        # floatList = [float(x) for x in lengthOfData]
-                                        # floatData.append(floatList)
                                         floatData.append(lengthOfData)
-                                        # print(lengthOfData)
-                                        # print(floatList)
                         except Exception:
                                 print("Error: File Does not exist. ", Exception)
                         if len(floatData):
                                 [x_axis, y_axis, title, labelX, labelY, userLineStyle, userMarkerStyle] = floatData
-                                print(dataFile)
-                                # print(floatData)
-                                # print(x_axis)
-                                # print(y_axis)
-                                # print(title)
-                                # print(labelX)
-                                # print(labelY)
-                                # print(userLineStyle)
-                                # print(userMarkerStyle)
                                 x_axis = [float(x) for x in x_axis]
                                 y_axis = [float(x) for x in y_axis]
                                 [plotTitle] = title
@@ -142,8 +124,6 @@ while True:
                                 [y_axisLabel] = labelY
                                 [userLineStyle] = userLineStyle
                                 [userMarkerStyle] = userMarkerStyle
-                                # print(x_axis)
-                                # print(y_axis)
 
                                 """
                                 ---- Line Style ----
