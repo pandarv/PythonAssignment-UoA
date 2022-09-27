@@ -123,14 +123,14 @@ while True:
                                 print("Error: File Does not exist. ", Exception)
                         if len(floatData):
                                 [x_axis, y_axis, title, labelX, labelY, userLineStyle, userMarkerStyle] = floatData
-                                print(floatData)
-                                print(x_axis)
-                                print(y_axis)
-                                print(title)
-                                print(labelX)
-                                print(labelY)
-                                print(userLineStyle)
-                                print(userMarkerStyle)
+                                # print(floatData)
+                                # print(x_axis)
+                                # print(y_axis)
+                                # print(title)
+                                # print(labelX)
+                                # print(labelY)
+                                # print(userLineStyle)
+                                # print(userMarkerStyle)
                                 x_axis = [float(x) for x in x_axis]
                                 y_axis = [float(x) for x in y_axis]
                                 [plotTitle] = title
@@ -138,8 +138,8 @@ while True:
                                 [y_axisLabel] = labelY
                                 [userLineStyle] = userLineStyle
                                 [userMarkerStyle] = userMarkerStyle
-                                print(x_axis)
-                                print(y_axis)
+                                # print(x_axis)
+                                # print(y_axis)
 
                                 """
                                 ---- Line Style ----
