@@ -74,50 +74,14 @@ while True:
                         lineStyle = gettingStyles(name = "line Style", opOne = "Solid Line", one = '-',  opTwo = "Dotted Line", two = ':', opThree = "Dashed Line", three = '--',  opFour = "Dashed/Dotted Line", four = '-.')
                         markerStyle = gettingStyles(name = "marker Style", opOne = "Circle Marker", one = 'o',  opTwo = "Star Marker", two = '*', opThree = "Diamond Marker", three = 'D',  opFour = "Hexagon Marker", four = 'H')                
                         
-                        print(plotTitle)
-                        print(x_axisLabel)
-                        print(y_axisLabel)
-                        
-                        # while True:
-                        #         userOption = input("Would you like to choose a custom line style? Y/N  ").strip().upper()
-                        #         if userOption == 'Y':
-                        #                 print("Option 1: Solid Line \nOption 2: Dotted Line \nOption 3: Dashed Line \nOption 4: Dashed/Dotted Line")
-                        #                 userOption = input().strip().upper()
-                        #                 if userOption == "1":
-                        #                         lineStyle = '-'
-                        #                 elif userOption == "2":
-                        #                         lineStyle = ':'
-                        #                 elif userOption == "3":
-                        #                         lineStyle = '--'
-                        #                 elif userOption == "4":
-                        #                         lineStyle = '-.'
-                        #                 break
-                        #         elif userOption == "N":
-                        #                 break
-                        #         else:
-                        #                 print('Please Choose Y/N.')
-                        
-                        # while True:
-                        #         userOption = input("Would you like to choose a custom marker style? Y/N  ").strip().upper()
-                        #         if userOption == 'Y':
-                        #                 print("Option 1: Circle Marker \nOption 2: Star Marker \nOption 3: Diamond Marker \nOption 4: Hexagon Marker")
-                        #                 userOption = input().strip().upper()
-                        #                 if userOption == "1":
-                        #                         markerStyle = 'o'
-                        #                 elif userOption == "2":
-                        #                         markerStyle = '*'
-                        #                 elif userOption == "3":
-                        #                         markerStyle = 'D'
-                        #                 elif userOption == "4":
-                        #                         markerStyle = 'H'
-                        #                 break
-                        #         elif userOption == "N":
-                        #                 break
-                        #         else:
-                        #                 print('Please Choose Y/N.')
-                        
-                        print("Line Style: " , lineStyle)
-                        print("Marker: " , markerStyle)
+                        # print(plotTitle)
+                        # print(x_axisLabel)
+                        # print(y_axisLabel)
+                        # print("Line Style: " , lineStyle)
+                        # print("Marker: " , markerStyle)
+                        """
+                        ---- Plotting the Graph ----
+                        """
                         plt.plot(x_axis, y_axis, linestyle = lineStyle, marker = markerStyle)
                         plt.title(plotTitle)
                         plt.xlabel(x_axisLabel)
@@ -138,15 +102,30 @@ while True:
                                         lengthOfData = line.strip().split(",")
                                         floatList = [float(x) for x in lengthOfData]
                                         floatData.append(floatList)
-                                        print(floatList)
+                                        # print(floatList)
                         except Exception:
                                 print("Error: File Does not exist. ", Exception)
                         if len(floatData):
                                 [x_axis, y_axis] = floatData
+                                # print(floatData)
+                                # print(x_axis)
+                                # print(y_axis)
+                                plotTitle = quesAns("plot title")
+                                x_axisLabel = quesAns("x-axis label")
+                                y_axisLabel = quesAns("y-axis label")
+                                lineStyle = gettingStyles(name = "line Style", opOne = "Solid Line", one = '-',  opTwo = "Dotted Line", two = ':', opThree = "Dashed Line", three = '--',  opFour = "Dashed/Dotted Line", four = '-.')
+                                markerStyle = gettingStyles(name = "marker Style", opOne = "Circle Marker", one = 'o',  opTwo = "Star Marker", two = '*', opThree = "Diamond Marker", three = 'D',  opFour = "Hexagon Marker", four = 'H')
 
-                        print(floatData)
-                        print(x_axis)
-                        print(y_axis)
+                                """
+                                ---- Plotting the Graph ----
+                                """
+                                plt.plot(x_axis, y_axis, linestyle = lineStyle, marker = markerStyle)
+                                plt.title(plotTitle)
+                                plt.xlabel(x_axisLabel)
+                                plt.ylabel(y_axisLabel)
+                                plt.show()
+
+                        
                         
                 case "0":
                         # bool(int("0"))
