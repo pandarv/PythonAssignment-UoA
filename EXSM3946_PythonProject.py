@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from ast import match_case
 
 
-print("Welcome to the chartmaker! Please begin by choosing one of the following options: \nOption 1: Manual Data Entry \nOption 2: Enter Data From Text File")
+print("Welcome to the chartmaker! Please begin by choosing one of the following options: \nOption 1: Manual Data Entry \nOption 2: Enter Data From Text File \nOption 0: End the program")
 def isFloat(prompt, vari):
         isTrue = False
         while isTrue != True:
